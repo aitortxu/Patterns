@@ -1,6 +1,6 @@
 package com.patterns.strategy
 
-class AdManager(val country: Country) {
+class ListingManager(val country: Country) {
     fun isNetwork():Boolean {
         if (country == Country.PH || country == Country.CO || country == Country.PE || country == Country.TH || country == Country.PE ){
             return true

@@ -6,7 +6,7 @@ import com.patterns.strategy.Country.PH
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class CookieManagerShould {
+class CookiesManagerShould {
 
     @Test
     fun `return true for a european country`() {
