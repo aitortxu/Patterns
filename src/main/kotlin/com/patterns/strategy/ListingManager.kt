@@ -1,18 +1,32 @@
 package com.patterns.strategy
 
+import com.patterns.strategy.site.CpcSite
+import com.patterns.strategy.site.NetworkSite
+import com.patterns.strategy.site.PlaygroundSite
+import com.patterns.strategy.site.Site
+
 class ListingManager(val country: Country) {
-    fun isNetwork():Boolean {
-        if (country == Country.PH || country == Country.CO || country == Country.PE || country == Country.TH || country == Country.PE ){
-            return true
+
+    var siteStrategy = getSiteStrategy(country)
+
+    private fun getSiteStrategy(country: Country): Site {
+        if (country == Country.AR){
+            return PlaygroundSite()
         }
-        return false
+        if (country == Country.ES){
+            return CpcSite()
+        }
+        return NetworkSite()
+    }
+
+    fun isNetwork():Boolean {
+        return  siteStrategy.isNetwork()
     }
 
     fun isPlayground():Boolean {
-        if (country == Country.AR || country == Country.DE){
-            return true
-        }
-        return false
+        return  siteStrategy.isPlayground()
     }
+
+    // a bunch of other methods
 
 }
